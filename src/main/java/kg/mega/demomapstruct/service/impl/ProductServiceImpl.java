@@ -1,9 +1,7 @@
 package kg.mega.demomapstruct.service.impl;
 
 import kg.mega.demomapstruct.mapper.ProductMapper;
-import kg.mega.demomapstruct.model.Printer;
 import kg.mega.demomapstruct.model.Product;
-import kg.mega.demomapstruct.model.dto.MakerDto;
 import kg.mega.demomapstruct.repository.ProductRepo;
 import kg.mega.demomapstruct.service.ProductService;
 import org.springframework.stereotype.Service;
