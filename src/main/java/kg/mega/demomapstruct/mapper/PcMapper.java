@@ -13,8 +13,6 @@ public interface PcMapper {
     PcMapper INSTANCE = Mappers.getMapper(PcMapper.class);
 
     @Mapping(source = "product.model", target = "model")
-    @Mapping(source = "speed", target = "speed")
-    @Mapping(source = "hd", target = "hd")
     PcDto pcToPcDto(Pc pc);
 
     List<PcDto> pcListToPcDtoList(List<Pc> pcList);

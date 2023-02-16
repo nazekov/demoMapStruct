@@ -1,9 +1,7 @@
 package kg.mega.demomapstruct.mapper;
 
 import kg.mega.demomapstruct.model.Product;
-import kg.mega.demomapstruct.model.dto.MakerDto;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import java.util.List;
 
@@ -12,8 +10,9 @@ public interface ProductMapper {
 
     ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 
-    @Mapping(source = "maker", target = "maker")
-    MakerDto printerToMakerName(Product product);
+    default String productToMaker(Product product) {
+        return product.getMaker();
+    }
 
-    List<MakerDto> printerListToPrinterDto2List(List<Product> products);
+    List<String> getMakersList(List<Product> makers);
 }

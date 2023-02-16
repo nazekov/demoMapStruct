@@ -22,10 +22,9 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<String> findMakersByType(String type) {
         List<Product> products = productRepo.findAllByType(type);
-        List<MakerDto> makerDtos
-                = ProductMapper.INSTANCE.printerListToPrinterDto2List(products);
-        return makerDtos.stream()
-                .map(MakerDto::getMaker)
+        return ProductMapper.INSTANCE
+                .getMakersList(products)
+                .stream()
                 .distinct()
                 .collect(Collectors.toList());
     }
