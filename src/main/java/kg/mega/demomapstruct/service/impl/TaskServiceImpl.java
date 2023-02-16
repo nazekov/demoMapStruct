@@ -41,5 +41,6 @@ public class TaskServiceImpl implements TaskService {
         map.put(3, laptopService.findAllByPriceGreaterThan(1000));
         map.put(4, printerService.findAllByColor('y'));
         map.put(5, pcService.findAllByPriceLessThanAndCdIn(600, List.of("12x", "24x")));
+        map.put(6, laptopService.findAllByHdGreaterThanEqual(10));
     }
 }

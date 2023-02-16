@@ -9,4 +9,6 @@ import java.util.List;
 public interface LaptopRepo extends JpaRepository<Laptop, Integer> {
 
     List<Laptop> findAllByPriceGreaterThan(double price);
+
+    List<Laptop> findAllByHdGreaterThanEqual(double hd);
 }
