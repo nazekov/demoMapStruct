@@ -1,6 +1,7 @@
 package kg.mega.demomapstruct.service.impl;
 
 import kg.mega.demomapstruct.service.PcService;
+import kg.mega.demomapstruct.service.ProductService;
 import kg.mega.demomapstruct.service.TaskService;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
@@ -9,10 +10,13 @@ import java.util.HashMap;
 public class TaskServiceImpl implements TaskService {
 
     private final PcService pcService;
+    private final ProductService productService;
     private static HashMap<Integer, Object> map;
 
-    public TaskServiceImpl(PcService pcService) {
+    public TaskServiceImpl(PcService pcService,
+                           ProductService productService) {
         this.pcService = pcService;
+        this.productService = productService;
         initilization();
     }
 
@@ -24,5 +28,6 @@ public class TaskServiceImpl implements TaskService {
     private void initilization() {
         map = new HashMap<>();
         map.put(1, pcService.findByPrice(500));
+        map.put(2, productService.findMakersByType("Printer"));
     }
 }
