@@ -1,5 +1,6 @@
 package kg.mega.demomapstruct.service.impl;
 
+import kg.mega.demomapstruct.service.LaptopService;
 import kg.mega.demomapstruct.service.PcService;
 import kg.mega.demomapstruct.service.ProductService;
 import kg.mega.demomapstruct.service.TaskService;
@@ -11,12 +12,15 @@ public class TaskServiceImpl implements TaskService {
 
     private final PcService pcService;
     private final ProductService productService;
+    private final LaptopService laptopService;
     private static HashMap<Integer, Object> map;
 
     public TaskServiceImpl(PcService pcService,
-                           ProductService productService) {
+                           ProductService productService,
+                           LaptopService laptopService) {
         this.pcService = pcService;
         this.productService = productService;
+        this.laptopService = laptopService;
         initilization();
     }
 
@@ -29,5 +33,6 @@ public class TaskServiceImpl implements TaskService {
         map = new HashMap<>();
         map.put(1, pcService.findByPrice(500));
         map.put(2, productService.findMakersByType("Printer"));
+        map.put(3, laptopService.findAllByPriceGreaterThan(1000));
     }
 }
