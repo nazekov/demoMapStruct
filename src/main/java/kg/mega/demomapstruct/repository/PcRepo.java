@@ -9,4 +9,6 @@ import java.util.List;
 public interface PcRepo extends JpaRepository<Pc, Integer> {
 
     List<Pc> findAllByPriceLessThan(double price);
+
+    List<Pc> findAllByPriceLessThanAndCdIn(double price, List<String> cds);
 }

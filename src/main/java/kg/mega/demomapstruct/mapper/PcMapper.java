@@ -16,5 +16,4 @@ public interface PcMapper {
     PcDto pcToPcDto(Pc pc);
 
     List<PcDto> pcListToPcDtoList(List<Pc> pcList);
-
 }

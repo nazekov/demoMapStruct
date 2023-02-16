@@ -22,4 +22,11 @@ public class PcServiceImpl implements PcService {
         List<Pc> pcList = pcRepo.findAllByPriceLessThan(price);
         return PcMapper.INSTANCE.pcListToPcDtoList(pcList);
     }
+
+    @Override
+    public List<PcDto> findAllByPriceLessThanAndCdIn(double price,
+                                                     List<String> cds) {
+        List<Pc> pcList = pcRepo.findAllByPriceLessThanAndCdIn(price, cds);
+        return PcMapper.INSTANCE.pcListToPcDtoList(pcList);
+    }
 }

@@ -7,6 +7,7 @@ import kg.mega.demomapstruct.service.ProductService;
 import kg.mega.demomapstruct.service.TaskService;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -39,5 +40,6 @@ public class TaskServiceImpl implements TaskService {
         map.put(2, productService.findMakersByType("Printer"));
         map.put(3, laptopService.findAllByPriceGreaterThan(1000));
         map.put(4, printerService.findAllByColor('y'));
+        map.put(5, pcService.findAllByPriceLessThanAndCdIn(600, List.of("12x", "24x")));
     }
 }
