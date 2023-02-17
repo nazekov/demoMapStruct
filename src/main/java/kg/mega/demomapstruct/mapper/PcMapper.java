@@ -1,7 +1,9 @@
 package kg.mega.demomapstruct.mapper;
 
+import kg.mega.demomapstruct.model.Laptop;
 import kg.mega.demomapstruct.model.Pc;
 import kg.mega.demomapstruct.model.dto.PcDto;
+import kg.mega.demomapstruct.model.dto.UnionDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -15,5 +17,10 @@ public interface PcMapper {
     @Mapping(source = "product.model", target = "model")
     PcDto pcToPcDto(Pc pc);
 
+    @Mapping(source = "product.model", target = "model")
+    UnionDto pcToUnionDto(Pc pc);
+
     List<PcDto> pcListToPcDtoList(List<Pc> pcList);
+
+    List<UnionDto> pcListToListUnionDto(List<Pc> pcList);
 }

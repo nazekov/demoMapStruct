@@ -4,6 +4,7 @@ import kg.mega.demomapstruct.mapper.LaptopMapper;
 import kg.mega.demomapstruct.model.Laptop;
 import kg.mega.demomapstruct.model.dto.LaptopDto;
 import kg.mega.demomapstruct.model.dto.LaptopDto6;
+import kg.mega.demomapstruct.model.dto.UnionDto;
 import kg.mega.demomapstruct.repository.LaptopRepo;
 import kg.mega.demomapstruct.service.LaptopService;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,11 @@ public class LaptopServiceImpl implements LaptopService {
     public List<LaptopDto6> findAllByHdGreaterThanEqual(double hd) {
         List<Laptop> laptops = laptopRepo.findAllByHdGreaterThanEqual(hd);
         return LaptopMapper.INSTANCE.laptopListToListDto6(laptops);
+    }
+
+    @Override
+    public List<UnionDto> findAllByMaker(String maker) {
+        List<Laptop> laptops = laptopRepo.findAllByMaker(maker);
+        return LaptopMapper.INSTANCE.laptopListToListUnionDto(laptops);
     }
 }

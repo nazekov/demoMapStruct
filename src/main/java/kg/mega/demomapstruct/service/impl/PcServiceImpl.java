@@ -3,6 +3,7 @@ package kg.mega.demomapstruct.service.impl;
 import kg.mega.demomapstruct.mapper.PcMapper;
 import kg.mega.demomapstruct.model.Pc;
 import kg.mega.demomapstruct.model.dto.PcDto;
+import kg.mega.demomapstruct.model.dto.UnionDto;
 import kg.mega.demomapstruct.repository.PcRepo;
 import kg.mega.demomapstruct.service.PcService;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,11 @@ public class PcServiceImpl implements PcService {
                                                      List<String> cds) {
         List<Pc> pcList = pcRepo.findAllByPriceLessThanAndCdIn(price, cds);
         return PcMapper.INSTANCE.pcListToPcDtoList(pcList);
+    }
+
+    @Override
+    public List<UnionDto> findAllByMaker(String maker) {
+        List<Pc> pcList = pcRepo.findAllByMaker(maker);
+        return PcMapper.INSTANCE.pcListToListUnionDto(pcList);
     }
 }
