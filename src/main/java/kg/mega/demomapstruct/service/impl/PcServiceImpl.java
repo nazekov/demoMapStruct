@@ -7,7 +7,9 @@ import kg.mega.demomapstruct.model.dto.UnionDto;
 import kg.mega.demomapstruct.repository.PcRepo;
 import kg.mega.demomapstruct.service.PcService;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PcServiceImpl implements PcService {
@@ -35,5 +37,14 @@ public class PcServiceImpl implements PcService {
     public List<UnionDto> findAllByMaker(String maker) {
         List<Pc> pcList = pcRepo.findAllByMaker(maker);
         return PcMapper.INSTANCE.pcListToListUnionDto(pcList);
+    }
+
+    @Override
+    public List<String> findAllPcMakersBySpeedGreaterThanEqual(int speed) {
+        List<Pc> pcList = pcRepo.findAllBySpeedGreaterThanEqual(speed);
+        return PcMapper.INSTANCE.pcListToMakerList(pcList)
+                .stream()
+                .distinct()
+                .collect(Collectors.toList());
     }
 }
