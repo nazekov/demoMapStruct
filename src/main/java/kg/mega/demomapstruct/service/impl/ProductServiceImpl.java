@@ -26,4 +26,13 @@ public class ProductServiceImpl implements ProductService {
                 .distinct()
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<String> findMakersMadeOnlyPcAndNotMadeLaptops(String type1,
+                                                              String type2) {
+        List<String> makers1 = findMakersByType(type1);
+        List<String> makers2 = findMakersByType(type2);
+        makers1.removeAll(makers2);
+        return makers1;
+    }
 }
