@@ -23,4 +23,9 @@ public interface PcRepo extends JpaRepository<Pc, Integer> {
 
     @Query("select avg(speed) from Pc where product.maker = ?1")
     Integer calculateAverageSpeedByMaker(String maker);
+
+    @Query("select hd from Pc " +
+            "group by hd " +
+            "having count(hd) > 1")
+    List<Double> findAllHdByIdenticalTwoOrMorePcs();
 }

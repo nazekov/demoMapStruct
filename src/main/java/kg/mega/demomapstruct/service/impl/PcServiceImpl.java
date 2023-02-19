@@ -57,4 +57,9 @@ public class PcServiceImpl implements PcService {
     public Integer calculateAverageSpeedByMaker(String maker) {
         return pcRepo.calculateAverageSpeedByMaker(maker);
     }
+
+    @Override
+    public List<Double> findAllHdByIdenticalTwoOrMorePcs() {
+        return pcRepo.findAllHdByIdenticalTwoOrMorePcs();
+    }
 }

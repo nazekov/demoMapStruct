@@ -17,4 +17,6 @@ public interface PcService {
     Integer calculateAverageSpeed();
 
     Integer calculateAverageSpeedByMaker(String maker);
+
+    List<Double> findAllHdByIdenticalTwoOrMorePcs();
 }
