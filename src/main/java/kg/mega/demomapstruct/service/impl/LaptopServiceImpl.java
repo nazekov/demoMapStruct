@@ -36,4 +36,9 @@ public class LaptopServiceImpl implements LaptopService {
         List<Laptop> laptops = laptopRepo.findAllByMaker(maker);
         return LaptopMapper.INSTANCE.laptopListToListUnionDto(laptops);
     }
+
+    @Override
+    public Integer getAverageSpeedByPriceGreaterThan(double price) {
+        return laptopRepo.getAverageSpeedByPriceGreaterThan(price);
+    }
 }
