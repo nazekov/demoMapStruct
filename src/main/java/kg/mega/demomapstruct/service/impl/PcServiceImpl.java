@@ -47,4 +47,9 @@ public class PcServiceImpl implements PcService {
                 .distinct()
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Integer calculateAverageSpeed() {
+        return pcRepo.calculateAverageSpeed();
+    }
 }

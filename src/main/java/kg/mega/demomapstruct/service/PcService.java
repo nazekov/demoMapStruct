@@ -13,4 +13,6 @@ public interface PcService {
     List<UnionDto> findAllByMaker(String maker);
 
     List<String> findAllPcMakersBySpeedGreaterThanEqual(int speed);
+
+    Integer calculateAverageSpeed();
 }

@@ -17,4 +17,7 @@ public interface PcRepo extends JpaRepository<Pc, Integer> {
     List<Pc> findAllByMaker(String maker);
 
     List<Pc> findAllBySpeedGreaterThanEqual(int speed);
+
+    @Query("select avg(speed) from Pc")
+    Integer calculateAverageSpeed();
 }
