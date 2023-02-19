@@ -17,4 +17,11 @@ public interface PrinterRepo extends JpaRepository<Printer, Integer> {
     @Query("select p from Printer p " +
             "where p.price = (select max(price) from Printer)")
     List<Printer> findAllByPriceEqualsMax();
+
+    @Query("select pr from Printer pr " +
+            "where pr.color = 'y' and pr.price = (" +
+                "select min(price) from Printer " +
+                "where color = 'y'" +
+            ")")
+    List<Printer> findAllColorPrinters();
 }

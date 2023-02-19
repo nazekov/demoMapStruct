@@ -3,6 +3,7 @@ package kg.mega.demomapstruct.service.impl;
 import kg.mega.demomapstruct.mapper.PrinterMapper;
 import kg.mega.demomapstruct.model.Printer;
 import kg.mega.demomapstruct.model.dto.PrinterDto;
+import kg.mega.demomapstruct.model.dto.PrinterDto18;
 import kg.mega.demomapstruct.model.dto.UnionDto;
 import kg.mega.demomapstruct.repository.PrinterRepo;
 import kg.mega.demomapstruct.service.PrinterService;
@@ -34,5 +35,11 @@ public class PrinterServiceImpl implements PrinterService {
     public List<UnionDto> findAllByPriceEqualsMax() {
         List<Printer> printers = printerRepo.findAllByPriceEqualsMax();
         return PrinterMapper.INSTANCE.printerListToListUnionDto(printers);
+    }
+
+    @Override
+    public List<PrinterDto18> findAllMakersColorPrinters() {
+        List<Printer> printers = printerRepo.findAllColorPrinters();
+        return PrinterMapper.INSTANCE.printerListToDto18List(printers);
     }
 }

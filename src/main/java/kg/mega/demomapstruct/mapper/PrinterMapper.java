@@ -3,6 +3,7 @@ package kg.mega.demomapstruct.mapper;
 import kg.mega.demomapstruct.model.Pc;
 import kg.mega.demomapstruct.model.Printer;
 import kg.mega.demomapstruct.model.dto.PrinterDto;
+import kg.mega.demomapstruct.model.dto.PrinterDto18;
 import kg.mega.demomapstruct.model.dto.UnionDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -20,7 +21,12 @@ public interface PrinterMapper {
     @Mapping(source = "product.model", target = "model")
     UnionDto printerToUnionDto(Printer printer);
 
+    @Mapping(source = "product.maker", target = "maker")
+    PrinterDto18 printerToDto18(Printer printer);
+
     List<PrinterDto> printerListToDtoList(List<Printer> printers);
 
     List<UnionDto> printerListToListUnionDto(List<Printer> pcList);
+
+    List<PrinterDto18> printerListToDto18List(List<Printer> printers);
 }
