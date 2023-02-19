@@ -59,5 +59,6 @@ public class TaskServiceImpl implements TaskService {
         map.put(7, findAllProductsByMaker("B"));
         map.put(8, productService.findMakersMadeOnlyPcAndNotMadeLaptops("PC", "Laptop"));
         map.put(9, pcService.findAllPcMakersBySpeedGreaterThanEqual(450));
+        map.put(10, printerService.findAllByPriceEqualsMax());
     }
 }

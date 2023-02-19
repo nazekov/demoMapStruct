@@ -29,4 +29,10 @@ public class PrinterServiceImpl implements PrinterService {
         List<Printer> printers = printerRepo.findAllByMaker(maker);
         return PrinterMapper.INSTANCE.printerListToListUnionDto(printers);
     }
+
+    @Override
+    public List<UnionDto> findAllByPriceEqualsMax() {
+        List<Printer> printers = printerRepo.findAllByPriceEqualsMax();
+        return PrinterMapper.INSTANCE.printerListToListUnionDto(printers);
+    }
 }
