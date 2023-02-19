@@ -3,6 +3,7 @@ package kg.mega.demomapstruct.service.impl;
 import kg.mega.demomapstruct.mapper.LaptopMapper;
 import kg.mega.demomapstruct.model.Laptop;
 import kg.mega.demomapstruct.model.dto.LaptopDto;
+import kg.mega.demomapstruct.model.dto.LaptopDto17;
 import kg.mega.demomapstruct.model.dto.LaptopDto6;
 import kg.mega.demomapstruct.model.dto.UnionDto;
 import kg.mega.demomapstruct.repository.LaptopRepo;
@@ -40,5 +41,11 @@ public class LaptopServiceImpl implements LaptopService {
     @Override
     public Integer getAverageSpeedByPriceGreaterThan(double price) {
         return laptopRepo.getAverageSpeedByPriceGreaterThan(price);
+    }
+
+    @Override
+    public List<LaptopDto17> findAllBySpeedLessThanMaxSpeedPc() {
+        List<Laptop> laptops = laptopRepo.findAllBySpeedLessThanMaxSpeedPc();
+        return LaptopMapper.INSTANCE.laptopListToListDto17(laptops);
     }
 }

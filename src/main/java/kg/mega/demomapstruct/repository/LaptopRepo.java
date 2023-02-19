@@ -18,4 +18,8 @@ public interface LaptopRepo extends JpaRepository<Laptop, Integer> {
 
     @Query("select avg(speed) from Laptop where price > ?1")
     Integer getAverageSpeedByPriceGreaterThan(double price);
+
+    @Query("select l from Laptop l " +
+            "where l.speed < (select min(speed) from Pc)")
+    List<Laptop> findAllBySpeedLessThanMaxSpeedPc();
 }
