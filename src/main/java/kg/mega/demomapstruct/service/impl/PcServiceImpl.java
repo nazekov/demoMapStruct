@@ -52,4 +52,9 @@ public class PcServiceImpl implements PcService {
     public Integer calculateAverageSpeed() {
         return pcRepo.calculateAverageSpeed();
     }
+
+    @Override
+    public Integer calculateAverageSpeedByMaker(String maker) {
+        return pcRepo.calculateAverageSpeedByMaker(maker);
+    }
 }

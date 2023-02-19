@@ -20,4 +20,7 @@ public interface PcRepo extends JpaRepository<Pc, Integer> {
 
     @Query("select avg(speed) from Pc")
     Integer calculateAverageSpeed();
+
+    @Query("select avg(speed) from Pc where product.maker = ?1")
+    Integer calculateAverageSpeedByMaker(String maker);
 }
