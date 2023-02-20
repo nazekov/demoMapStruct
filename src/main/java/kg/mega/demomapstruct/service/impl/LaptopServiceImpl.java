@@ -2,10 +2,7 @@ package kg.mega.demomapstruct.service.impl;
 
 import kg.mega.demomapstruct.mapper.LaptopMapper;
 import kg.mega.demomapstruct.model.Laptop;
-import kg.mega.demomapstruct.model.dto.LaptopDto;
-import kg.mega.demomapstruct.model.dto.LaptopDto17;
-import kg.mega.demomapstruct.model.dto.LaptopDto6;
-import kg.mega.demomapstruct.model.dto.UnionDto;
+import kg.mega.demomapstruct.model.dto.*;
 import kg.mega.demomapstruct.repository.LaptopRepo;
 import kg.mega.demomapstruct.service.LaptopService;
 import org.springframework.stereotype.Service;
@@ -47,5 +44,11 @@ public class LaptopServiceImpl implements LaptopService {
     public List<LaptopDto17> findAllBySpeedLessThanMaxSpeedPc() {
         List<Laptop> laptops = laptopRepo.findAllBySpeedLessThanMaxSpeedPc();
         return LaptopMapper.INSTANCE.laptopListToListDto17(laptops);
+    }
+
+    @Override
+    public List<Dto19Obj> findAllLaptopsAvgScreen() {
+        List<Dto19> dto19s = laptopRepo.findAllMakersByAvgScreen();
+        return LaptopMapper.INSTANCE.listdtos19ToDtoImpl19List(dto19s);
     }
 }

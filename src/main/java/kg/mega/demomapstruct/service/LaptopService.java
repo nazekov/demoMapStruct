@@ -1,6 +1,6 @@
 package kg.mega.demomapstruct.service;
 
-import kg.mega.demomapstruct.model.Laptop;
+import kg.mega.demomapstruct.model.dto.Dto19Obj;
 import kg.mega.demomapstruct.model.dto.LaptopDto;
 import kg.mega.demomapstruct.model.dto.LaptopDto17;
 import kg.mega.demomapstruct.model.dto.LaptopDto6;
@@ -18,4 +18,6 @@ public interface LaptopService {
     Integer getAverageSpeedByPriceGreaterThan(double price);
 
     List<LaptopDto17> findAllBySpeedLessThanMaxSpeedPc();
+
+    List<Dto19Obj> findAllLaptopsAvgScreen();
 }

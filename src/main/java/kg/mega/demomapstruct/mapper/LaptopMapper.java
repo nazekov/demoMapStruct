@@ -1,10 +1,7 @@
 package kg.mega.demomapstruct.mapper;
 
 import kg.mega.demomapstruct.model.Laptop;
-import kg.mega.demomapstruct.model.dto.LaptopDto;
-import kg.mega.demomapstruct.model.dto.LaptopDto17;
-import kg.mega.demomapstruct.model.dto.LaptopDto6;
-import kg.mega.demomapstruct.model.dto.UnionDto;
+import kg.mega.demomapstruct.model.dto.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -24,6 +21,8 @@ public interface LaptopMapper {
     @Mapping(source = "product.model", target = "model")
     UnionDto laptopToUnionDto(Laptop laptop);
 
+    Dto19Obj dto19ToDtoImpl19(Dto19 dto19);
+
     @Mapping(source = "product.type", target = "type")
     @Mapping(source = "product.model", target = "model")
     LaptopDto17 laptopToDto17(Laptop laptop);
@@ -35,4 +34,6 @@ public interface LaptopMapper {
     List<UnionDto> laptopListToListUnionDto(List<Laptop> laptops);
 
     List<LaptopDto17> laptopListToListDto17(List<Laptop> laptops);
+
+    List<Dto19Obj> listdtos19ToDtoImpl19List(List<Dto19> dto19s);
 }
