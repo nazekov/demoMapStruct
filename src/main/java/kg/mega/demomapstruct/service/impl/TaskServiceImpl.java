@@ -67,5 +67,6 @@ public class TaskServiceImpl implements TaskService {
         map.put(17, laptopService.findAllBySpeedLessThanMaxSpeedPc());
         map.put(18, printerService.findAllMakersColorPrinters());
         map.put(19, laptopService.findAllLaptopsAvgScreen());
+        map.put(20, productService.findAllMakersByDistinctCountModels());
     }
 }
